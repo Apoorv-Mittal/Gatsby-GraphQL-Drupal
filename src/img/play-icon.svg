@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="89px" height="89px" viewBox="0 0 89 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>play icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-8.8%" y="-6.2%" width="117.5%" height="117.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.18115942 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop---Research" transform="translate(-230.000000, -959.000000)" fill="#FFFFFF">
+            <g id="video" transform="translate(58.000000, 880.000000)">
+                <g id="play-icon" filter="url(#filter-1)" transform="translate(176.841258, 81.841352)">
+                    <path d="M40,0 C17.9546667,0 0,17.9546667 0,40 C0,62.0453333 17.9546667,80 40,80 C62.0453333,80 80,62.0453333 80,40 C80,17.9546667 62.0453333,0 40,0 Z M40,75.5555556 C20.3537778,75.5555556 4.44444444,59.6462222 4.44444444,40 C4.44444444,20.3537778 20.3537778,4.44444444 40,4.44444444 C59.6462222,4.44444444 75.5555556,20.3537778 75.5555556,40 C75.5555556,59.6462222 59.6462222,75.5555556 40,75.5555556 Z" id="Fill-1"></path>
+                    <path d="M60,38.0453333 L31.6462222,21.688 C30.9344178,21.3338311 30.1358222,21.3338311 29.424,21.688 C28.7121956,22.0421689 28.2677333,22.8442667 28.2677333,23.6428444 L28.2677333,56.3548444 C28.2677333,57.1534578 28.7121778,57.8652444 29.424,58.3096889 C29.7781689,58.4867733 30.1358044,58.5770489 30.5802667,58.5770489 C31.0247289,58.5770489 31.37888,58.4867733 31.7365333,58.3096889 L60.0903111,41.9559111 C60.8021156,41.6017422 61.2465778,40.7996444 61.2465778,40.0010667 C61.2431022,39.2024533 60.7118578,38.4906667 60.0000889,38.0462222 L60,38.0453333 Z M32.7982222,52.5351111 L32.7982222,27.4657778 L54.4888889,40.0008889 L32.7982222,52.5351111 Z" id="Fill-2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
