@@ -10,7 +10,6 @@ export class Article extends React.Component {
     let image = this.props.location.state.image[0].node.original.src
     let node = this.props.location.state.node
 
-    console.log(image)
     return (
       <Layout>
         <SEO title={node.title} />
