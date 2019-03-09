@@ -1,26 +1,74 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
+import {Card, CardImg, CardBody, CardTitle, Container, Row, Col} from 'reactstrap'
+import { graphql } from 'gatsby'
 
 class IndexPage extends React.Component {
 
   render() {
 
     const pages = this.props.data.allNodeArticle.edges
-    const pageTitles = pages.map((page, index) => 
-    {
+
+    const HeroTitle = pages.slice(0, 1).map((page, index) => {
       let node = page.node
-      let img = this.props.data.allImageSharp.edges.filter(i => i.node.parent.id === node.relationships.field_image.localFile.id )
+      let img = this.props.data.allImageSharp.edges.filter(i => i.node.parent.id === node.relationships.field_image.localFile.id)
       return (
-        <li key ={Math.random()}>
-          <Link to="/article" key ={Math.random()} state={{ node: node, image: img }}>
-            {page.node.title}
-          </Link>
-        </li>)
+        <Row key={index}>
+          <Col className="med-spaces clearfix">
+            <section className="feature-container" key={index}>
+              <div className="feature image-left">
+                <div className="inner-container">
+                  <Link to="/article" key={Math.random()} state={{ node: node, image: img }} className="home-link track-click">
+                    <div className="feature-img-container col-lg-8 no-pad-all" key={index}>
+                      <div className="feature-img" style={{ backgroundImage: `url('${img[0].node.original.src}')` }} />
+                    </div>
+                    <div className="feature-description col-lg-4">
+                      <div className="feature-content">
+                        <h5 className="body-color">
+                          {page.node.title}
+                        </h5>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </section>
+          </Col>
+        </Row>)
     })
+
+    const PageTitles = () => {
+      const grids = pages.slice(1, pages.length).map((page, index) => {
+        let node = page.node
+        let img = this.props.data.allImageSharp.edges.filter(i => i.node.parent.id === node.relationships.field_image.localFile.id)
+        return (
+          <div className="col-sm-6 col-md-6 col-lg-3 d-flex align-items-stretch" key={index}>
+            <Card className="w-100">
+              <Link to="/article" key={Math.random()} state={{ node: node, image: img }} className="home-link track-click">
+                <div className="card-img-wrapper" key={index}>
+                  <CardImg top width="100%" src={img[0].node.original.src} />
+                </div>
+                <CardBody>
+                  <CardTitle>{page.node.title}</CardTitle>
+                </CardBody>
+              </Link>
+            </Card>
+          </div>
+        )
+      }
+      )
+      return (
+        <Row>
+          {grids}
+        </Row>)
+    }
     return (
       <Layout>
-        <ul>{pageTitles}</ul>
+        <Container>
+          {HeroTitle}
+          <PageTitles />
+        </Container>
       </Layout>
     )
   }
