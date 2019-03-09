@@ -1,0 +1,34 @@
+// Load Fonts
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,900,700,700italic,900italic,500italic,500,400italic,100italic,100');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+@import url('https://cloud.typography.com/6330236/7959992/css/fonts.css');
+
+
+$umd_red:       		#e21833;
+$umd_dkred:     		#900900;
+$umd_yellow:    		#ffd200;
+
+$umd_offwhite:  		#f1f1f1;
+$umd_lightgray: 		#E2E2E2;
+$umd_silver:    		#d8d8d8;
+$umd_midgray:			#d3d3d3;
+$umd_gray:      		#636363;
+$umd_black:     		#424242;
+
+$border-color:			#e1e1e1;
+
+$body-color: 		  	#434A4F;
+$textgray:				#BDBDBD;
+
+$nav_black:			  	#263238;
+$nav_lightblack:		#37474F;
+
+$font-main: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+$font-button: 'Roboto', 'Source Sans Pro', Helvetica, Arial, sans-serif;
+$font-georgia: Georgia, Times, 'Times New Roman', serif;
+$font-crimson: 'Crimson Text', serif;
+$font-tungsten: 'Tungsten A', 'Tungsten B', 'Tungsten', 'Roboto', 'Source Sans Pro', Helvetica, Arial, sans-serif;
+
+$enable-rounded: false;

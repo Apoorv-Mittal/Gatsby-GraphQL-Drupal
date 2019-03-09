@@ -1,0 +1,47 @@
+@mixin breakpoint($point) {
+    @if $point == screen-xl {
+	@media only screen and (min-width : 1200px) { @content; }
+	}
+	@if $point == screen-lg {
+		@media only screen and (min-width : 992px) and (max-width : 1200px) { @content; }
+	}
+	@else if $point == screen-md {
+		@media only screen and (min-width : 768px) and (max-width : 992px) { @content; }
+	}
+	@else if $point == screen-sm {
+		@media only screen and (min-width : 480px) and (max-width : 768px) { @content; }
+	}
+	@else if $point == screen-xs {
+		@media only screen and (max-width : 480px) { @content; }
+	}
+}
+
+@mixin calc($property, $expression) {
+	#{$property}: -moz-calc(#{$expression});
+	#{$property}: -webkit-calc(#{$expression});
+	#{$property}: calc(#{$expression});
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}

@@ -1,0 +1,160 @@
+.grid-width {
+    max-width: 55%;
+}
+
+.feature-container {
+    background-color: #fff;
+    @include media-breakpoint-down(md) {
+        margin-top: 25px;
+    }
+
+    .feature {
+        position: relative;
+        height: 550px;
+        -webkit-transition: 1s opacity;
+        transition: 1s opacity;
+        width: 100%;
+
+        @include media-breakpoint-down(md) { height: auto; }
+
+        .inner-container {
+            height: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+
+            @include media-breakpoint-down(md) {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+
+            .feature-description {    
+                display: inline-block;
+                display: table;
+                vertical-align: middle;
+                height: 100%;
+                padding: 0;
+                padding-left: 2.5em;
+
+                @include media-breakpoint-down(md) { padding-left: 1.5em !important; }
+
+                .feature-content {
+                    display: inline-block;
+                    display: table-cell;
+                    vertical-align: middle;
+
+                    h5 {
+                        font-size: 42px;
+                        line-height: 42px;
+                        font-weight: bold;
+
+                        @include media-breakpoint-down(md) {
+                            font-size: 26px;
+                            line-height: 26px;
+                        }
+                    }
+                    
+                    hr {
+                        border-width: 3px;
+                        margin: 2rem 0;
+                        width: 110px;
+
+                        @include media-breakpoint-down(xs) {
+                            margin: 1em 0;
+                        }
+                    }
+
+                    p.content-info {
+                        font-weight: normal;
+                        font-size: 21px;
+                        line-height: 26px;
+                        font-style: italic;
+                        font-family: $font-crimson;
+
+                        @include media-breakpoint-down(md) {
+                            font-size: 16px;
+                            line-height: 21px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.image-left {
+            .feature-description {
+                float: right;
+                padding-left: 2.5em;
+
+                @include media-breakpoint-down(md) {
+                    padding: 2.5rem;
+                    background-color: #fff;
+                }
+            }
+
+            .feature-img-container {
+               right: 50%;
+               left: 0;
+               margin-right: -95px; 
+               margin-left: 0;
+
+               @include media-breakpoint-down(md) { height: 300px; }
+            }
+        }
+
+        .feature-img-container {
+            background: #d9d9d9 no-repeat 50% 50%;
+            background-size: cover;
+            position: absolute;
+            height: 100%;
+            top: 0;
+            display: block;
+            overflow: hidden;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+
+            @include media-breakpoint-down(md) { 
+                position: relative;
+            }
+
+            .feature-img {
+                width: 100%;
+                height: 100%;
+                -webkit-transition: 0.3s all;
+                transition: 0.3s all;
+                background: no-repeat 50% 50%;
+                -webkit-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                transform: scale(1.1);
+
+                img {
+                    border-radius: 0;
+                }
+
+                &:hover {
+                    -webkit-transform: scale(1.2);
+                    -ms-transform: scale(1.2);
+                    transform: scale(1.2);
+                }
+
+                &.video {
+                    iframe {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.feature-link {
+    font-size: 14px;
+    line-height: 24px;
+    color: #E21833; 
+}
+
+.feature-link:hover {
+    color: #05387C;
+}

@@ -1,0 +1,104 @@
+footer {
+	margin-top: 2rem;
+
+	.umd-logo {
+		padding-right: 2rem;
+
+		@include media-breakpoint-down(md) {
+			margin: 0 auto;
+			display: block;
+		}
+		
+	}
+
+	.footer-info {
+		font-size: 13px;
+		line-height: 21px;
+		margin: 0;
+
+		@include media-breakpoint-down(md) {
+			text-align: center;
+			margin: 1.25rem 0;
+		}
+	}
+
+	.social {
+		.menu {
+			padding-left: 0;
+			margin: 0 auto;
+			display: inline-block;
+			width: 100%;
+
+			@include breakpoint(screen-md) { text-align: center; }
+			@include breakpoint(screen-sm) { text-align: center; }
+			@include breakpoint(screen-xs) { text-align: center; }
+
+			li {
+				padding: 0.7rem 1rem;
+				width: 25%;
+
+				@include breakpoint(screen-xl) { display: inline-block; }
+				@include breakpoint(screen-lg) { display: inline-block; }
+				@include breakpoint(screen-md) { display: inline-block; width: 22%; }
+				@include breakpoint(screen-sm) { display: inline-block; width: 22%; }
+				@include breakpoint(screen-xs) { display: inline-block; width: 22%; }
+
+				a {
+					color: $umd_gray;
+					font-size: 26px;
+					line-height: 34px;
+					width: 100%;
+					display: block;
+					text-align: center;
+
+					&:hover, &:focus {
+						color: $umd_red;
+					}
+				}
+			}
+		}
+
+		.navbar-nav {
+			float: none !important;
+
+			
+			@include breakpoint(screen-xl) { float: none !important; }
+			@include breakpoint(screen-lg) { float: none !important; }
+			@include breakpoint(screen-md) { padding: 0; }
+			@include breakpoint(screen-sm) { padding: 0; }
+			@include breakpoint(screen-xs) { padding: 0; }
+		}
+	}
+
+	.navbar-bottom {
+	    width: 100%;
+    }
+
+    .sub-footer {
+	    margin: 0;
+	    width: 100%;
+		background-color: $umd_silver;
+	    margin-top: 2rem;
+		
+		.nav-item {
+			a.nav-link {
+				color: $body_color;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+				font-size: 13px;
+			}
+			&:last-child {
+				.nav-link::after {
+		            content: "";
+		        }
+			}
+	        .nav-link::after {
+	            content: "/";
+	            color: $umd_red;
+	            margin-left: 2rem;
+	            display:inline-block;
+	        }
+		}
+	}
+
+}

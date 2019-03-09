@@ -1,0 +1,860 @@
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+* {
+    -webkit-overflow-scrolling: touch;
+}
+:root {
+    font-family: $font-main !important;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    background-color: $umd_offwhite;
+    font-size: 16px;
+    line-height: 1.4;
+    color: $body-color;
+    // padding-top: 135px;
+    // padding-top: 135px;
+    font-family: $font-main !important;
+
+}
+// BOOTSTRAP OVERRIDES - IMPORTANT
+.row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+.container {
+    @include media-breakpoint-down(xl) { max-width: 1350px; }
+}
+// END BOOTSTRAP OVERRIDES
+.hide {
+    display: none;
+}
+
+.bg-clip {
+    background-clip: content-box;
+}
+a {
+    color: $umd_red;
+    text-decoration: none;
+
+    &:hover, &:focus {
+        color: $umd_dkred;
+        text-decoration: none;
+    }
+
+    &.body-color {
+        color: $body-color;
+
+        &:hover, &:focus {
+            color: $umd_dkred;
+        }
+    }
+
+    &.full {
+        width: 100%;
+    }
+    &.underline {
+        text-decoration: underline;
+
+        &:hover, &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.no-box-shadow {
+    box-shadow: none !important;
+}
+.no-border {
+    border: 0 !important;
+}
+
+.absolute {
+    position: absolute !important;
+}
+.relative {
+    position: relative !important;
+    display: block;
+}
+.inline {
+    display: inline-block;
+}
+// Background Colors
+.dark-bg {
+    background-color: #3A3A3C;
+}
+.white-bg {
+    background-color: #ffffff;
+}
+.silver-bg {
+    background-color: $umd_silver;
+}
+.red-bg {
+    background-color: $umd_red;
+}
+.yellow-bg {
+    background-color: $umd_yellow !important;
+}
+// Colors
+.white {
+    color: #ffffff !important;
+}
+.gray, .grey {
+    color: $umd_gray !important;
+}
+.yellow {
+    color: $umd_yellow !important;
+}
+.red {
+    color: $umd_red;
+}
+.body-color {
+    color: $body-color;
+}
+// Font size control - Hack for different projects
+.thirtyfour {
+    font-size: 34px;
+    line-height: 34px;
+
+    i {
+        transition: all .3s ease-in-out;
+    }
+    i:hover {
+        transform: scale(1.1);
+    }
+}
+// Padding Classes
+.gutter {
+    padding: 0 30px;
+}
+.extra-gutter {
+    padding: 0 20px;
+}
+.spaces {
+    padding-top: 5.125rem;
+    padding-bottom: 5.125rem;
+
+
+    @include breakpoint(screen-md) { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    @include breakpoint(screen-sm) { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    @include breakpoint(screen-xs) { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+}
+.marg-b {
+    margin-bottom: 2rem;
+}
+.med-spaces {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @include breakpoint(screen-sm) { padding-top: 2rem; padding-bottom: 2em; }
+    @include breakpoint(screen-xs) { padding-top: 2rem; padding-bottom: 2em; }
+}
+.no-pad-all {
+    padding: 0 !important;
+}
+.no-pad {
+    padding: 0 !important;
+}
+.no-pad-top {
+    padding-top: 0 !important;
+}
+.no-pad-b {
+    padding-bottom: 0 !important;
+}
+.no-marg {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+.no-marg-all {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+.no-marg-top {
+    margin-top: 0 !important;
+}
+.no-marg-b {
+    margin-bottom: 0 !important;
+}
+// Text Positions
+.center {
+    text-align: center;
+}
+.center {
+    img {
+        margin: 0 auto;
+        display: block;
+    }
+}
+img {
+    &.center {
+        margin: 0 auto;
+        display: block;
+    }
+    &.full {
+        width: 100%;
+    }
+}
+iframe {
+    width: 100%;
+}
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    margin-top: 1em;
+    margin-bottom: 1.25em;
+
+    @include media-breakpoint-down(sm) {
+        padding: 0 !important;
+        height: unset;
+        margin-bottom: 0 !important;
+        line-height: 0;
+    }
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        @include media-breakpoint-down(sm) {
+            height: 400px !important;
+            position: relative;
+            top: inherit;
+            left: inherit;
+        }
+    }
+}
+.boilerplate p {
+    font-size: 13px;
+    line-height: 21px;
+    color: $umd_gray;
+}
+// Extras
+hr {
+    border-top: 1px solid $umd_offwhite;
+
+    &.hr-lrg {
+        border-width: 3px 0 0;
+
+        &.silver {
+            border-color: $umd_silver;
+        }
+    }
+    &.x-lrg {
+        border-top: 10px solid #ffffff;
+        margin: 40px 0;
+    }
+    &.sm {
+        max-width: 30px;
+        margin: 1rem 0;
+        border-top: 2px solid #d8d8d8;
+    }
+}
+
+.right {
+    float: right !important;
+}
+.left {
+    float: left;
+}
+
+// Modal - Centered Vertically
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+
+
+// Buttons
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.btn, .btn-info, .btn-info[disabled] {
+    /*margin-bottom: $pad;*/
+    font-family: $font-button;
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 24px;
+    padding: 16px 24px;
+    color: $umd_red;
+    border: 2px $umd_red solid;
+    background-color: transparent;
+
+    @include breakpoint(screen-xl) { padding: 16px 24px; }
+
+    &.org-chart {
+        @include breakpoint(screen-xl) { width: 250px; }
+    }
+
+    &:hover {
+        background-color: $umd_red;
+        border-color: $umd_red;
+        color: #fff;
+    }
+
+    &:focus, &:active, &:active:focus {
+        background-color: $umd_dkred;
+        border-color: $umd_dkred;
+        color: #fff;
+        outline: 0;
+    }
+
+    &.featured {
+        width: 200px;
+
+        @include breakpoint(screen-md) {
+            margin-bottom: 1em;
+        }
+        @include breakpoint(screen-sm) {
+            margin-bottom: 1em;
+        }
+        @include breakpoint(screen-xs) {
+            margin-bottom: 1em;
+        }
+    }
+
+    &.thin {
+        border-width: 1px;
+    }
+
+    &.square {
+        border-radius: 0;
+/*        padding: 0.7rem 3rem !important;*/
+
+        &.dark {
+            background-color: rgba(0, 0, 0, 0.2);
+
+            &:hover, &:focus {
+                background-color: $umd_red;
+            }
+        }
+    }
+    &.solid {
+        background-color: $umd_red;
+        color: #ffffff;
+        border-width: 1px;
+
+        &:hover, &:focus {
+            background-color: $umd_dkred;
+            border-color: $umd_dkred;
+        }
+    }
+    &.full {
+        width: 100%;
+    }
+    &.yellow-bg {
+        &:hover, &:focus {
+            background-color: $umd_red !important;
+            border-color: $umd_red;
+        }
+    }
+    &.white {
+        color: #ffffff !important;
+        border: 2px solid #ffffff !important;
+
+        &:hover, &:focus {
+            background-color: $umd_red !important;
+            border: 2px solid $umd_red !important;
+            color: #ffffff !important;
+        }
+    }
+    &.grey, &.gray {
+        color:  !important;
+        border: 2px solid $umd_gray !important;
+        padding: 16px 48px;
+
+        &:hover, &:focus, &:active, &:active:focus {
+            background-color: $umd_red !important;
+            border: 2px solid $umd_red !important;
+            color: #ffffff !important;
+        }
+    }
+
+    &.light-grey, &.light-gray {
+        color:  !important;
+        border: 2px solid #E6E6E6 !important;
+        padding: 16px 48px;
+        color: #787878;
+
+        &:hover, &:focus, &:active, &:active:focus {
+            background-color: $umd_red !important;
+            border: 2px solid $umd_red !important;
+            color: #ffffff !important;
+        }
+    }
+
+
+}
+
+.gift {
+    line-height: 27px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5;
+    margin-right: 10px;
+
+
+    svg {
+        margin-top: -2px;
+        fill: white;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+a.calendar {
+    border-radius: 0;
+    border-width: 3px;
+    border-color: $umd_silver;
+    color: $umd_gray;
+    font-size: 13px;
+    line-height: 16px;
+
+    &:hover, &:focus {
+        background-color: $umd_red !important;
+        border: 3px solid $umd_red !important;
+        color: #ffffff !important;
+    }
+}
+
+.button-group {
+    width: 100%;
+
+    &.four {
+        li {
+            width: 25%;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            box-sizing: border-box;
+
+
+            @include breakpoint(screen-md) {
+                width: 50% !important;
+                padding-left: 1em;
+
+                &:first-child, &:nth-child(3) {
+                    padding-left: 0;
+                }
+            }
+            @include breakpoint(screen-sm) {
+                width: 100%;
+            }
+            @include breakpoint(screen-xs) {
+                width: 100%;
+            }
+        }
+
+
+    }
+
+    &.two {
+        li {
+            width: 50%;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            box-sizing: border-box;
+
+
+            @include breakpoint(screen-md) {
+                width: 50% !important;
+                padding-left: 1em;
+            }
+            @include breakpoint(screen-sm) {
+                width: 100%;
+            }
+            @include breakpoint(screen-xs) {
+                width: 100%;
+            }
+        }
+    }
+
+    li {
+        width: 33.33333%;
+        float: left;
+
+        @include breakpoint(screen-md) {
+            width: 100%;
+        }
+        @include breakpoint(screen-sm) {
+            width: 100%;
+        }
+        @include breakpoint(screen-xs) {
+            width: 100%;
+        }
+
+        &:first-child a.text-btn {
+            margin-left: 0;
+        }
+        &:last-child a.text-btn {
+            margin-right: 0;
+        }
+    }
+}
+.text-shadow {
+    -webkit-text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
+}
+
+a.text-btn {
+    color: $umd_red;
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.7rem 3rem !important;
+    margin: 0 0.5rem 1rem 0.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid $umd_lightgray;
+    letter-spacing: 1px;
+    display: inline-block;
+
+
+    @include breakpoint(screen-md) { margin: 0 0 1rem 0; }
+    @include breakpoint(screen-sm) { margin: 0 0 1rem 0; }
+    @include breakpoint(screen-xs) { margin: 0 0 1rem 0; }
+
+    &:hover, &:focus {
+        background-color: $umd_red !important;
+        color: #ffffff;
+    }
+
+    &.hollow {
+        color: $umd_gray !important;
+        border: 1px solid $umd_gray;
+        background-color: transparent;
+
+        &:hover, &:focus {
+            background-color: $umd_red;
+            border: 1px solid $umd_red;
+            color: #ffffff !important;
+        }
+
+        &.white {
+            color: #ffffff !important;
+            border: 1px solid #ffffff !important;
+
+            &:hover, &:focus {
+                background-color: $umd_red !important;
+                border: 1px solid $umd_red !important;
+                color: #ffffff !important;
+            }
+        }
+    }
+}
+
+
+a.btn-tag {
+    display: inline-block;
+    color: $umd_gray !important;
+    border: 1px solid $umd_gray;
+    padding: 0.7rem 3rem !important;
+    font-size: 13px;
+    line-height: 13px;
+    text-transform: uppercase;
+    margin: 2rem 0 1rem 0 !important;
+    letter-spacing: 1px;
+
+    &:hover, &:focus {
+        background-color: $umd_red !important;
+        border: 1px solid $umd_red;
+        color: #ffffff !important;
+        text-decoration: none;
+    }
+
+    &.red {
+        border: 1px solid $umd_red;
+        color: $umd_red !important;
+
+        &:hover, &:focus {
+            color: #ffffff !important;
+        }
+    }
+}
+
+.btn-white {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+.btn-blk {
+    color: $umd_black;
+    border-color: $umd_black;
+}
+
+.btn-gray {
+    color: $umd_black;
+    border-color: $umd_midgray !important;
+
+    &:hover, &:focus {
+        border-color: $umd_red !important;
+    }
+}
+
+.panel-default {
+    border-color: $umd_lightgray;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+    &.no-styles {
+        border: 0;
+        box-shadow: none;
+    }
+
+    .panel, &.panel {
+        border-radius: 0;
+
+        .panel-body {
+            &.panel-body-lrg {
+                padding: 25px 45px;
+            }
+            &.panel-body-med {
+                padding: 25px 30px;
+            }
+        }
+    }
+    hr {
+        border-top: 1px solid $umd_silver;
+    }
+
+    h4 {
+        font-size: 21px;
+        line-height: 26px;
+    }
+    &.dark {
+        border-color: #ffffff;
+        border-width: 3px;
+        background-color: rgba(0, 0, 0, 0.8) !important;
+    }
+    &.red-panel {
+        border-color: $umd_red;
+        border-width: 3px;
+    }
+    &.gray-panel {
+        border-color: $umd_silver;
+        border-width: 3px;
+    }
+    &.white-border {
+        border-color: #ffffff;
+        border-width: 3px;
+    }
+    &.transparent-bg {
+        background-color: transparent;
+    }
+}
+.portrait {
+    margin-bottom: 1em;
+}
+
+/* --------------------------------
+
+Image left content right card design
+
+-------------------------------- */
+.feature-card-container {
+    background-color: #ffffff;
+    margin-bottom: 1em;
+
+    .feature-card {
+        position: relative;
+        height: 200px;
+        -webkit-transition: 1s opacity;
+        transition: 1s opacity;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        border: 1px solid $umd_lightgray;
+
+        &.height-100 {
+            height: 100% !important;
+        }
+
+        .image-left .feature-img-container {
+           right: 50%;
+           left: 0;
+           margin-right: -95px;
+           margin-left: 0;
+        }
+
+        .feature-img-container {
+            right: 50%;
+            left: 0;
+            margin-right: -95px;
+            margin-left: 0;
+            background: #d9d9d9 no-repeat 50% 50%;
+            background-size: cover;
+            position: absolute;
+            height: 100%;
+            top: 0;
+            display: block;
+            overflow: hidden;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            width: 40%;
+
+            @include breakpoint(screen-lg) {  }
+            @include breakpoint(screen-md) {  }
+            @include breakpoint(screen-sm) { display: none; }
+            @include breakpoint(screen-xs) { display: none; }
+
+            .feature-img {
+                width: 100%;
+                height: 100%;
+                -webkit-transition: 0.3s all;
+                transition: 0.3s all;
+                background: no-repeat 50% 50%;
+
+                &:hover{
+                    -webkit-transform: scale(1.1);
+                    -ms-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+            .feature-img-overlay  {
+                position: absolute;
+                z-index: 2;
+                -webkit-transform: none !important;
+                transform: none !important;
+                color: #fff;
+            }
+            .top  {
+                left: 50px;
+                right: 50px;
+                top: 50px;
+            }
+            .bottom  {
+                left: 50px;
+                right: 50px;
+                bottom: 50px;
+            }
+        }
+    }
+
+    .image-left .feature-description {
+        float: right;
+        padding-right: 2.5em;
+
+        @include breakpoint(screen-lg) {}
+        @include breakpoint(screen-md) {}
+        @include breakpoint(screen-sm) { padding-right: 1.5em; padding-left: 1.5em; }
+        @include breakpoint(screen-xs) { padding-right: 1.5em; padding-left: 1.5em; }
+    }
+
+    .feature-description {
+        display: inline-block;
+        display: table;
+        vertical-align: middle;
+        height: 100%;
+        width: 55%;
+
+        @include breakpoint(screen-lg) {}
+        @include breakpoint(screen-md) {}
+        @include breakpoint(screen-sm) { width: 100%; }
+        @include breakpoint(screen-xs) { width: 100%; }
+
+        .feature-content {
+            display: inline-block;
+            display: table-cell;
+            vertical-align: middle;
+
+            hr {
+                max-width: 30px;
+                margin: 1rem 0;
+                border-top: 2px solid #d8d8d8;
+            }
+
+
+            h2 {
+                font-size: 1.5rem;
+                line-height: 1.4rem;
+                margin: 0;
+                font-weight: bold;
+            }
+
+            .content-info {
+                color: #666666;
+            }
+        }
+    }
+}
+
+.nav {
+    &.no-style {
+        a {
+            padding: 0.7rem 3rem;
+
+            &.btn-blk {
+                &:hover, &:focus {
+                    background-color: $umd_red;
+                    color: #umd_dkred;
+                }
+            }
+
+            &:hover, &:focus {
+                background-color: transparent;
+                color: #umd_dkred;
+            }
+        }
+    }
+}
+
+.slide-link {
+    color: $umd_red;
+    float: left;
+    margin-bottom: 30px;
+    font-size: 1em;
+    line-height: 2em;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $umd_red;
+        visibility: hidden;
+        -webkit-transform: scaleX(0);
+        -moz-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+    }
+
+    &:hover {
+        color: $umd_red;
+
+        &::before {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            -moz-transform: scaleX(1);
+            transform: scaleX(1);
+        }
+    }
+}

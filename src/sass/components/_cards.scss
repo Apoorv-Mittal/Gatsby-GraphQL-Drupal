@@ -1,0 +1,521 @@
+.col-img {
+	max-width: 100%;
+}
+.play-icon {
+	img {
+		position: absolute;
+		width: 60px;
+		height: 60px;
+        top: 40%;
+	    left: 50%;
+	    margin-right: -50%;
+	    transform: translate(-50%, -50%);
+	}
+
+	&.feature {
+		img {
+			position: absolute;
+			width: 90px;
+			height: 90px;
+	        top: 50%;
+		    left: 50%;
+		    margin-right: -50%;
+		    transform: translate(-50%, -50%);
+		    z-index: 100;
+			
+			// OLD SCHOOOOOOL
+			@media screen and (max-width: 1200px) {
+				display: none;
+			}
+			@media screen and (max-width: 990px) {
+				display: block !important;
+			}
+		    @media screen and (max-width: 763px) {
+				display: none !important;
+			}
+		}
+	}
+}
+
+.split3row {
+	.play-icon {
+		img {
+			position: absolute;
+			width: 60px !important;
+			height: 60px !important;
+	        top: 50%;
+		    left: 50%;
+		    margin-right: -50%;
+		    transform: translate(-50%, -50%);
+		}
+	}
+}
+.card {
+	border-radius: 0;
+	border: 0;
+	margin-bottom: 2rem;
+	z-index: 1;
+
+	img {
+		border-radius: 0;
+	}
+	.card-tag {
+		font-size: 13px;
+		line-height: 13px;
+		margin-bottom: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-top: 0.5rem;
+		font-weight: 400;
+		font-family: $font-tungsten;
+
+		a {
+			color: $body-color;
+
+			&:hover, &:focus {
+				color: $umd_dkred;
+			}
+		}
+	}
+	.card-title {
+		font-size: 21px;
+		line-height: 21px;
+		color: $body_color;
+		font-weight: bold;
+	}
+	hr {
+		border-width: 1px;
+		width: 190px;
+		margin-left: 0;
+		margin: 0.75rem 0;
+	}
+	.card-text {
+		font-family: $font-crimson;
+		font-style: italic;
+		font-size: 16px;
+		line-height: 18px;
+		margin-bottom: 0.5rem;
+	}
+
+	img {
+		border-radius: 0;
+	}
+
+	a {
+		.card-img-container {
+			background-color: #666666;
+			overflow: hidden;
+
+			&::before {
+			    position: absolute;
+			    bottom: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 100%;
+			    z-index: 2;
+			    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 90%);
+				background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(90%, rgba(0, 0, 0, 0.75)));
+				background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 90%);
+			    content: '';
+			    height: 100%;
+			}
+
+			img {
+				width: 100%;
+
+				
+			}
+		}
+		
+		.card-img-overlay {
+			top: initial;
+			margin-bottom: 1rem;
+			z-index: 3;
+
+			@include media-breakpoint-down(sm) {
+				margin-bottom: 0;
+				padding: 0.75em;
+			}
+		}
+
+		.card-title {
+			color: #fff;
+			font-weight: bold;
+			letter-spacing: 1px;
+			font-size: 21px;
+			line-height: 26px;
+			bottom: 0;
+			-webkit-text-shadow: 0px 0px 9px rgba(0, 0, 0, 0.8);
+			text-shadow: 0px 0px 9px rgba(0, 0, 0, 0.8);
+
+			@include media-breakpoint-down(sm) {
+				font-size: 16px;
+				line-height: 21px;
+				margin-bottom: 5px;
+			}
+		}
+		.card-text {
+			color: #fff;
+			font-size: 16px;
+			line-height: 21px;
+			bottom: 0;
+			-webkit-text-shadow: 0px 0px 9px rgba(0, 0, 0, 0.8);
+			text-shadow: 0px 0px 9px rgba(0, 0, 0, 0.8);
+
+			@include media-breakpoint-down(sm) {
+				font-size: 13px;
+				line-height: 16px;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&.image-left {
+		overflow: hidden;
+
+		.card-block {
+			padding: 1.25rem;
+		}
+		
+		.col-img {
+			img {
+				object-fit: cover;
+				width: 180px;
+				height: 180px;
+
+				@include media-breakpoint-down(xs) {
+					width: 100%;
+					object-position: 50% 50%;
+				}
+			}
+		}
+	}
+
+	&.athletics {
+		border: 1px solid $umd_lightgray;
+
+		.card-body {
+			padding: 0.5rem;
+		}
+
+		.date {
+			font-size: 16px;
+			margin-bottom: 5px;
+		}
+
+		a.game {
+			font-weight: bold;
+			padding-bottom: 1em;
+			display: block;
+		}
+
+		.results {
+			font-size: 34px;
+			line-height: 34px;
+			font-family: $font_tungsten;
+			font-weight: 500;
+			letter-spacing: 0.5px;
+			color: $umd_gray;
+		}
+
+		.sub-links {
+			border-top: 5px solid $umd_offwhite;
+
+			a {
+				font-size: 10px;
+				line-height: 10px;
+				padding-right: 1em;
+				color: $umd_gray;
+				text-transform: uppercase;
+
+				&:hover, &:focus {
+					color: $umd_dkred;
+				}
+			}
+		}
+	}
+}
+
+.card-tag {
+	font-size: 13px;
+	line-height: 16px;
+	margin-bottom: 16px;
+	font-family: $font-tungsten;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+	a {
+		color: $body-color;
+
+		&:hover, &:focus {
+			color: $umd_dkred;
+		}
+	}
+}
+
+.feature {
+	height: -webkit-calc(100% - 2rem);
+	height: -moz-calc(100% - 2rem);
+	height: -ms-calc(100% - 2rem);
+	height: -o-calc(100% - 2rem);
+	height: calc(100% - 2rem);
+
+	.card-img-wrapper {
+	    // height: 396px;
+	    height: 375px;
+
+	    img {
+	    	height: 100%;
+	    	object-fit: cover;
+	    }	    
+	}
+	.card-body {
+		.card-title {
+			font-size: 42px;
+			line-height: 42px;
+
+			@include media-breakpoint-down(md) {
+				font-size: 34px;
+				line-height: 42px;
+			}
+			@include media-breakpoint-down(sm) {
+				font-size: 26px;
+				line-height: 34px;
+			}
+		}
+
+		.card-text {
+			font-family: $font-crimson;
+			font-style: italic;
+			font-weight: 600;
+			font-size: 21px;
+			line-height: 26px;
+			margin-bottom: 1.25rem;
+
+			@include media-breakpoint-down(md) {
+				font-size: 16px;
+				line-height: 21px;
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		hr {
+			border-width: 3px;
+			margin: 2rem 0;
+
+			@include media-breakpoint-down(md) {
+				margin: 1rem 0;
+			}
+		}
+	}
+}
+
+
+// Used as an overlay on images
+p.card-tab {
+    position: absolute;
+    display: block;
+    background-color: $umd_yellow;
+    color: $body_color;
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    top: 0;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0);
+    padding: 0.75rem 2rem 0.75rem 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    z-index: 3;
+}
+
+.dont-miss {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+
+.card-img-wrapper {
+    background-repeat: no-repeat;
+    height: 165px;
+    top: 0;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    background-color: $umd_lightgray;
+
+
+    .card-img {
+        width: 100%;
+        height: 100%;
+        background: #f1f1f1 no-repeat 50% 50%;
+        background-size: cover;
+        border-radius: 0;
+    }
+}
+
+.no-thumb {
+	.card-body {
+		border-bottom: 3px solid $umd_lightgray;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.card-tag {
+			font-size: 13px;
+			line-height: 13px;
+			margin-bottom: 16px;
+			font-family: $font-tungsten;
+			font-weight: 400;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-bottom: 5px;
+
+			a {
+				color: $body-color;
+
+				&:hover, &:focus {
+					color: $umd_dkred;
+				}
+			}
+		}
+		.card-title {
+			font-weight: 700;
+			letter-spacing: 1px;
+			font-size: 26px;
+			line-height: 26px;
+		}
+
+		p.card-text {
+			font-family: $font-crimson;
+			font-style: italic;
+		}
+	}
+}
+
+.equal {  
+    display: -webkit-flex;
+    display: flex;
+}
+
+
+.event-card {
+    text-align: center;
+    // height: 375px;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 2rem;
+    }
+
+	a {
+		color: #fff;
+		position: relative;
+		height: 100%;
+		width: 100%;
+
+		figure {
+	        margin: 0;
+	        height: 100%;
+			width: 100%;
+			display: block;
+
+	        img {
+			    object-fit: cover;
+				// width: 375px;
+				// height: 375px;
+
+				// @include media-breakpoint-down(sm) {
+			 //        height: 300px;
+			 //    }
+	        }
+	    }
+
+	    .dark {
+	        position: relative;
+	        float: left;
+	        cursor: pointer;
+	    }
+
+	    .dark:before {
+	        content: "";
+	        display: block;
+	        position: absolute;
+	        top: 0;
+	        bottom: 0;
+	        left: 0;
+	        right: 0;
+	        background: rgba(0,0,0, 0.25);
+	        -moz-transition: background .3s linear;
+	        -webkit-transition: background .3s linear;
+	        -o-transition: background .3s linear;
+	        transition: background .3s linear;
+	    }
+
+	    .card-img-overlay {
+			position: absolute;
+			top: 50% !important;
+			left: 50% !important;
+			right: initial;
+			bottom: initial;
+			margin-right: -50%;
+			transform: translate(-50%, -50%);
+
+	        @include media-breakpoint-down(sm) {
+		        top: 40px;
+		    }
+
+	        hr {
+	            margin: 0 auto;
+	            display: block;
+	            padding-bottom: 1.5rem;
+
+	            @include media-breakpoint-down(sm) {
+			        padding-bottom: 0.5rem;
+			    }
+	        }
+
+	        p.date {
+	            font-family: $font-main;
+	            text-transform: uppercase;
+	            font-weight: bold;
+	            letter-spacing: 1px;
+	            color: #fff;
+	            margin-bottom: 1.5rem;
+	            font-size: 13px;
+	            line-height: 16px;
+
+	            @include media-breakpoint-down(sm) {
+			        margin-bottom: 0.5rem;
+			    }
+	        }
+
+	        p.title {
+	            font-weight: 300;
+	            font-size: 16px;
+	            line-height: 21px;
+	            letter-spacing: 1px;
+	            margin-bottom: 0;
+	            -webkit-text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+	            text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+
+	            @include media-breakpoint-down(sm) {
+			        font-size: 16px;
+		            line-height: 21px;
+			    }
+
+	            strong {
+	                font-weight: 500;
+	            }
+	        }
+
+	    }
+	}
+
+}
