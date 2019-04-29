@@ -13,14 +13,26 @@ import {
 import { graphql } from "gatsby";
 
 class IndexPage extends React.Component {
-  render() {
-    const pages = this.props.data.allNodeArticle.edges;
 
-    const HeroTitle = pages.slice(0, 1).map((page, index) => {
+  constructor(props){
+    super(props)
+    this.pages = props.data.allNodeArticle.edges;
+    this.pages = this.pages.map((page,index) => {
       let node = page.node;
       let img = this.props.data.allImageSharp.edges.filter(
         i => i.node.parent.id === node.relationships.field_image.localFile.id
       );
+
+      return {article: node, image: img}
+    })
+  }
+
+  render() {
+    const pages = this.pages;
+
+    const HeroTitle = pages.slice(0, 1).map((page, index) => {
+      let node = page.article;
+      let img = page.image;
       return (
         <Row key={index}>
           <Col className="med-spaces clearfix">
@@ -46,7 +58,7 @@ class IndexPage extends React.Component {
                     </div>
                     <div className="feature-description col-lg-4">
                       <div className="feature-content">
-                        <h5 className="body-color">{page.node.title}</h5>
+                        <h5 className="body-color">{node.title}</h5>
                       </div>
                     </div>
                   </Link>
@@ -59,11 +71,9 @@ class IndexPage extends React.Component {
     });
 
     const PageTitles = () => {
-      const grids = pages.slice(1, pages.length).map((page, index) => {
-        let node = page.node;
-        let img = this.props.data.allImageSharp.edges.filter(
-          i => i.node.parent.id === node.relationships.field_image.localFile.id
-        );
+      const grids = pages.slice(3, pages.length).map((page, index) => {
+        let node = page.article;
+        let img = page.image;
         return (
           <div
             className="col-sm-6 col-md-6 col-lg-3 d-flex align-items-stretch"
@@ -80,7 +90,7 @@ class IndexPage extends React.Component {
                   <CardImg top width="100%" src={img[0].node.original.src} />
                 </div>
                 <CardBody>
-                  <CardTitle>{page.node.title}</CardTitle>
+                  <CardTitle>{node.title}</CardTitle>
                 </CardBody>
               </Link>
             </Card>
