@@ -5,6 +5,7 @@ import {
   Card,
   CardImg,
   CardBody,
+  CardText,
   CardTitle,
   Container,
   Row,
@@ -13,18 +14,17 @@ import {
 import { graphql } from "gatsby";
 
 class IndexPage extends React.Component {
-
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.pages = props.data.allNodeArticle.edges;
-    this.pages = this.pages.map((page,index) => {
+    this.pages = this.pages.map((page, index) => {
       let node = page.node;
       let img = this.props.data.allImageSharp.edges.filter(
         i => i.node.parent.id === node.relationships.field_image.localFile.id
       );
 
-      return {article: node, image: img}
-    })
+      return { article: node, image: img };
+    });
   }
 
   render() {
@@ -70,6 +70,44 @@ class IndexPage extends React.Component {
       );
     });
 
+    const SplitRight = () => (
+      <div className="col-12 col-lg-4 right">
+        {pages.slice(1, 3).map((page, index) => {
+          let node = page.article;
+          let img = page.image;
+          return (
+            <Card className="w-100" key={index}>
+              {img.map((hero, index) => (
+                <div className="card-img-wrapper" key={index}>
+                  <Link to={`/article`}>
+                    <CardImg
+                      top
+                      width="100%"
+                      src={hero.node.original.src}
+                      alt="image"
+                    />
+                  </Link>
+                </div>
+              ))}
+
+              <CardBody>
+                <CardTitle>
+                  <Link
+                    className="body-color"
+                    to={`/article`}
+                  >
+                    {node.title}
+                  </Link>
+                </CardTitle>
+                <hr />
+                <CardText>{node.subtitle}</CardText>
+              </CardBody>
+            </Card>
+          );
+        })}
+      </div>
+    );
+
     const PageTitles = () => {
       const grids = pages.slice(3, pages.length).map((page, index) => {
         let node = page.article;
@@ -103,6 +141,7 @@ class IndexPage extends React.Component {
       <Layout>
         <Container>
           {HeroTitle}
+          <SplitRight/>
           <PageTitles />
         </Container>
       </Layout>
