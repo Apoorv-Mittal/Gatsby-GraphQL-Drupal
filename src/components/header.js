@@ -1,30 +1,31 @@
-import PropTypes from "prop-types"
-import React, { Component } from "react"
-import "../sass/styles.scss"
-import { Sidebar, Segment, Menu } from 'semantic-ui-react'
-import { Row, Col } from 'reactstrap'
-import Headroom from 'react-headroom'
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import "../sass/styles.scss";
+import { Sidebar, Segment, Menu } from "semantic-ui-react";
+import { Row, Col } from "reactstrap";
+import Headroom from "react-headroom";
 
 const UmdTopBar = () => (
   <section className="red-bg top-bar">
     <div>
       <p className="white uppercase no-marg-b center">
-        <a className="white crimson" href="https://umd.edu/">University of Maryland</a>
+        <a className="white crimson" href="https://umd.edu/">
+          University of Maryland
+        </a>
       </p>
     </div>
   </section>
-)
+);
 class HeaderSite extends Component {
   state = {
     visible: false,
-    weatherData: [],
-  }
+    weatherData: []
+  };
 
-  toggleVisibility = () => this.setState({ visible: !this.state.visible })
-
+  toggleVisibility = () => this.setState({ visible: !this.state.visible });
 
   render() {
-    const { visible } = this.state
+    const { visible } = this.state;
     return (
       <Sidebar.Pushable as={Segment}>
         <Headroom>
@@ -33,7 +34,11 @@ class HeaderSite extends Component {
             <Row className="align-items-center ">
               <Col>
                 <a href="/" className="brand">
-                  <img src={require('../img/QTCLogo.png')} width="400" alt="QTC UMD Logo" />
+                  <img
+                    src={require("../img/QTCLogo.png")}
+                    width="400"
+                    alt="QTC UMD Logo"
+                  />
                 </a>
               </Col>
 
@@ -42,10 +47,9 @@ class HeaderSite extends Component {
                   <div id="menuToggle" onClick={this.toggleVisibility}>
                     <input type="checkbox" id="menuCheckbox" />
 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
+                    <span />
+                    <span />
+                    <span />
                   </div>
                 </div>
                 {/* <div>
@@ -65,22 +69,34 @@ class HeaderSite extends Component {
                 <Col>
                   <ul className="nav nav-fill">
                     <li className="nav-item">
-                      <a className="nav-link active" href="/About">About</a>
+                      <a className="nav-link active" href="/About">
+                        About
+                      </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/Research">Research</a>
+                      <a className="nav-link" href="/Research">
+                        Research
+                      </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/News">News</a>
+                      <a className="nav-link" href="/News">
+                        News
+                      </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/Events">Events</a>
+                      <a className="nav-link" href="/Events">
+                        Events
+                      </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/tags/people">People</a>
+                      <a className="nav-link" href="/tags/people">
+                        People
+                      </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/Publication">Publication</a>
+                      <a className="nav-link" href="/Publication">
+                        Publication
+                      </a>
                     </li>
                   </ul>
                 </Col>
@@ -88,21 +104,31 @@ class HeaderSite extends Component {
             </div>
           </div>
         </Headroom>
-        <Sidebar as={Menu} animation='overlay' visible={visible} icon='labeled' vertical inverted className="sidenav">
+        <Sidebar
+          as={Menu}
+          animation="overlay"
+          visible={visible}
+          icon="labeled"
+          vertical
+          inverted
+          className="sidenav"
+        >
           <a href="/" className="brand">
             <div className="brand-container">
-
               <div className="hamburger-menu close">
                 <div id="menuToggle" onClick={this.toggleVisibility}>
                   <input type="checkbox" id="menuCheckbox" />
 
-                  <span></span>
-                  <span></span>
-                  <span></span>
-
+                  <span />
+                  <span />
+                  <span />
                 </div>
               </div>
-              <img src={require('../img/QTCLogo.png')} width="400" alt="QTC UMD Logo" />
+              <img
+                src={require("../img/QTCLogo.png")}
+                width="400"
+                alt="QTC UMD Logo"
+              />
             </div>
           </a>
           <div className="sidebar-contents">
@@ -127,18 +153,16 @@ class HeaderSite extends Component {
           </div>
         </Sidebar>
       </Sidebar.Pushable>
-
-    )
+    );
   }
-
 }
 
 HeaderSite.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  siteTitle: PropTypes.string
+};
 
 HeaderSite.defaultProps = {
-  siteTitle: ``,
-}
+  siteTitle: ``
+};
 
-export default HeaderSite
+export default HeaderSite;
