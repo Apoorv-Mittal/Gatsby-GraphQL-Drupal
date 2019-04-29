@@ -8,9 +8,9 @@ import {
   CardText,
   CardTitle,
   Container,
-  Row,
-  Col
+  Row
 } from "reactstrap";
+import Equalizer from "react-equalizer";
 import { graphql } from "gatsby";
 
 class IndexPage extends React.Component {
@@ -30,56 +30,16 @@ class IndexPage extends React.Component {
   render() {
     const pages = this.pages;
 
-    const HeroTitle = pages.slice(0, 1).map((page, index) => {
-      let node = page.article;
-      let img = page.image;
-      return (
-        <Row key={index}>
-          <Col className="med-spaces clearfix">
-            <section className="feature-container" key={index}>
-              <div className="feature image-left">
-                <div className="inner-container">
-                  <Link
-                    to="/article"
-                    key={Math.random()}
-                    state={{ node: node, image: img }}
-                    className="home-link track-click"
-                  >
-                    <div
-                      className="feature-img-container col-lg-8 no-pad-all"
-                      key={index}
-                    >
-                      <div
-                        className="feature-img"
-                        style={{
-                          backgroundImage: `url('${img[0].node.original.src}')`
-                        }}
-                      />
-                    </div>
-                    <div className="feature-description col-lg-4">
-                      <div className="feature-content">
-                        <h5 className="body-color">{node.title}</h5>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              </div>
-            </section>
-          </Col>
-        </Row>
-      );
-    });
-
-    const SplitRight = () => (
-      <div className="col-12 col-lg-4 right">
-        {pages.slice(1, 3).map((page, index) => {
+    const HeroTitle = () => (
+      <div className="col-12 col-lg-8 left">
+        {pages.slice(0, 1).map((page, index) => {
           let node = page.article;
           let img = page.image;
           return (
-            <Card className="w-100" key={index}>
+            <Card className="feature" key={index}>
               {img.map((hero, index) => (
                 <div className="card-img-wrapper" key={index}>
-                  <Link to={`/article`}>
+                  <Link to={`/article`} state={{ node: node, image: img }}>
                     <CardImg
                       top
                       width="100%"
@@ -95,6 +55,46 @@ class IndexPage extends React.Component {
                   <Link
                     className="body-color"
                     to={`/article`}
+                    state={{ node: node, image: img }}
+                  >
+                    {node.title}
+                  </Link>
+                </CardTitle>
+                <hr />
+                <CardText>{node.subtitle}</CardText>
+              </CardBody>
+            </Card>
+          );
+        })}
+      </div>
+    );
+
+    const SplitRight = () => (
+      <div className="col-12 col-lg-4 right">
+        {pages.slice(1, 3).map((page, index) => {
+          let node = page.article;
+          let img = page.image;
+          return (
+            <Card className="w-100" key={index}>
+              {img.map((hero, index) => (
+                <div className="card-img-wrapper" key={index}>
+                  <Link to={`/article`} state={{ node: node, image: img }}>
+                    <CardImg
+                      top
+                      width="100%"
+                      src={hero.node.original.src}
+                      alt="image"
+                    />
+                  </Link>
+                </div>
+              ))}
+
+              <CardBody>
+                <CardTitle>
+                  <Link
+                    className="body-color"
+                    to={`/article`}
+                    state={{ node: node, image: img }}
                   >
                     {node.title}
                   </Link>
@@ -139,9 +139,15 @@ class IndexPage extends React.Component {
     };
     return (
       <Layout>
-        <Container>
-          {HeroTitle}
-          <SplitRight/>
+        <Container className="split2row">
+          <div>
+            <Row>
+              <Equalizer>
+                <HeroTitle />
+                <SplitRight />
+              </Equalizer>
+            </Row>
+          </div>
           <PageTitles />
         </Container>
       </Layout>
