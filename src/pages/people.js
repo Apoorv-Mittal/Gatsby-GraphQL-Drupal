@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -26,10 +27,15 @@ export default class People extends React.Component {
             let articleLinks = [];
             if (relationships) {
               for (let i = 0; i < relationships.length; i += 2) {
-                let art = articleData.filter(element => element.article.title === relationships[i].title)
+                let art = articleData.filter(
+                  element => element.article.title === relationships[i].title
+                );
                 articleLinks.push(
                   <div key={i}>
-                    <Link to={`/article`} state={{ node: art[0].article, image: art[0].image }}>
+                    <Link
+                      to={`/article`}
+                      state={{ node: art[0].article, image: art[0].image }}
+                    >
                       {relationships[i].title}
                     </Link>
                     <br />
@@ -42,7 +48,7 @@ export default class People extends React.Component {
               <div key={index}>
                 <h5>{user.node.name}</h5>
                 <div>Articles: {articleLinks}</div>
-                <br/>
+                <br />
               </div>
             );
           })}
