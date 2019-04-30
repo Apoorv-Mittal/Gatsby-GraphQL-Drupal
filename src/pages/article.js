@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-export class Article extends React.Component {
+export default class Article extends React.Component {
   render() {
     let image = this.props.location.state.image[0].node.original.src;
     let node = this.props.location.state.node;
@@ -20,5 +20,3 @@ export class Article extends React.Component {
     );
   }
 }
-
-export default Article;
