@@ -3,6 +3,17 @@ import { graphql } from "gatsby";
 import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  CardText,
+  CardImg,
+  Row,
+  Col,
+  ListGroup,
+  ListGroupItem
+} from "reactstrap";
 
 export default class People extends React.Component {
   render() {
@@ -20,38 +31,50 @@ export default class People extends React.Component {
     return (
       <Layout>
         <SEO title="People" />
-        {userData
-          .filter(user => user.node.relationships != null)
-          .map((user, index) => {
-            let relationships = user.node.relationships.node__article;
-            let articleLinks = [];
-            if (relationships) {
-              for (let i = 0; i < relationships.length; i += 2) {
-                let art = articleData.filter(
-                  element => element.article.title === relationships[i].title
-                );
-                articleLinks.push(
-                  <div key={i}>
-                    <Link
-                      to={`/article`}
-                      state={{ node: art[0].article, image: art[0].image }}
-                    >
-                      {relationships[i].title}
-                    </Link>
-                    <br />
-                  </div>
-                );
+        <Row>
+          {userData
+            .filter(user => user.node.relationships != null)
+            .map((user, index) => {
+              let relationships = user.node.relationships.node__article;
+              let articleLinks = [];
+              if (relationships) {
+                for (let i = 0; i < relationships.length; i += 2) {
+                  let art = articleData.filter(
+                    element => element.article.title === relationships[i].title
+                  );
+                  articleLinks.push(
+                    <ListGroupItem key={i}>
+                      <Link
+                        to={`/article`}
+                        state={{ node: art[0].article, image: art[0].image }}
+                      >
+                        {relationships[i].title}
+                      </Link>
+                      <br />
+                    </ListGroupItem>
+                  );
+                }
               }
-            }
 
-            return (
-              <div key={index}>
-                <h5>{user.node.name}</h5>
-                <div>Articles: {articleLinks}</div>
-                <br />
-              </div>
-            );
-          })}
+              return (
+                <div key={index} style={{width: "25%"}}>
+                  <Col>
+                    <Card>
+                      <CardImg
+                        top
+                        src="https://picsum.photos/id/299/200/200"
+                        alt="Card image cap"
+                      />
+                      <CardBody>
+                        <CardTitle>{user.node.name}</CardTitle>
+                        <CardText>Articles: <ListGroup>{articleLinks}</ListGroup></CardText>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                </div>
+              );
+            })}
+        </Row>
         <br />
         <Link to="/">Go back to the homepage</Link>
       </Layout>
