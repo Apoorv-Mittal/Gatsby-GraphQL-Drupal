@@ -41,6 +41,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "devDependencies": {
+    "bibtex-parser-js": "0.0.2",
     "bootstrap": "^4.3.1",
     "graphql": "^14.2.1",
     "jquery": "^3.4.0",
