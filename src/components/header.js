@@ -94,7 +94,7 @@ class HeaderSite extends Component {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/Publication">
+                      <a className="nav-link" href="/publication">
                         Publication
                       </a>
                     </li>
@@ -148,7 +148,7 @@ class HeaderSite extends Component {
               <a href="/tags/people">People</a>
             </Menu.Item>
             <Menu.Item>
-              <a href="/Publication">Publication</a>
+              <a href="/publication">Publication</a>
             </Menu.Item>
           </div>
         </Sidebar>
