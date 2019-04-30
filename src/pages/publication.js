@@ -7,8 +7,6 @@ export default class Publication extends React.Component {
   render() {
     let data = this.props.data.allNodePublication.edges;
 
-    console.log(data);
-
     return (
       <Layout>
         <SEO title="Publications" />
