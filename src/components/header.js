@@ -69,7 +69,7 @@ class HeaderSite extends Component {
                 <Col>
                   <ul className="nav nav-fill">
                     <li className="nav-item">
-                      <a className="nav-link active" href="/About">
+                      <a className="nav-link active" href="/about">
                         About
                       </a>
                     </li>
@@ -133,7 +133,7 @@ class HeaderSite extends Component {
           </a>
           <div className="sidebar-contents">
             <Menu.Item>
-              <a href="/About">About</a>
+              <a href="/about">About</a>
             </Menu.Item>
             <Menu.Item>
               <a href="/News">News</a>
