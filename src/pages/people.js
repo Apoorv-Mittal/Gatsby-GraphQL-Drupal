@@ -20,14 +20,6 @@ export default class People extends React.Component {
     let userData = this.props.data.allUserUser.edges;
     let articleData = this.props.data.allNodeArticle.edges;
 
-    articleData = articleData.map((page, index) => {
-      let node = page.node;
-      let img = this.props.data.allImageSharp.edges.filter(
-        i => i.node.parent.id === node.relationships.field_image.localFile.id
-      );
-      return { article: node, image: img };
-    });
-
     return (
       <Layout>
         <SEO title="People" />
@@ -40,13 +32,12 @@ export default class People extends React.Component {
               if (relationships) {
                 for (let i = 0; i < relationships.length; i += 2) {
                   let art = articleData.filter(
-                    element => element.article.title === relationships[i].title
+                    element => element.node.title === relationships[i].title
                   );
                   articleLinks.push(
                     <ListGroupItem key={i}>
                       <Link
-                        to={`/article/${art[0].article.id}`}
-                        state={{ node: art[0].article, image: art[0].image }}
+                        to={`/article/${art[0].node.id}`}
                       >
                         {relationships[i].title}
                       </Link>
@@ -101,38 +92,6 @@ export const query = graphql`
         node {
           id
           title
-          body {
-            value
-            processed
-          }
-          relationships {
-            field_image {
-              id
-              localFile {
-                id
-              }
-            }
-          }
-        }
-      }
-    }
-    allImageSharp {
-      edges {
-        node {
-          original {
-            width
-            height
-            src
-          }
-          id
-          internal {
-            contentDigest
-            type
-            owner
-          }
-          parent {
-            id
-          }
         }
       }
     }
