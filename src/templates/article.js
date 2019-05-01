@@ -22,7 +22,7 @@ export default ({ data: { allNodeArticle: {edges: article} }, pageContext: {imag
 // we can query the needed category according to the id passed in the
 // context property of createPage() in gatsby-node.js
 export const query = graphql`
-query CategoryQuery($id: String!) {
+query ($id: String!) {
         allNodeArticle(filter: {id: {eq: $id}}) {
             edges {
                 node {
