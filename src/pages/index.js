@@ -160,13 +160,8 @@ export const query = graphql`
         node {
           title
           id
-          body {
-            value
-            processed
-          }
           relationships {
             field_image {
-              id
               localFile {
                 id
               }
@@ -179,15 +174,7 @@ export const query = graphql`
       edges {
         node {
           original {
-            width
-            height
             src
-          }
-          id
-          internal {
-            contentDigest
-            type
-            owner
           }
           parent {
             id
