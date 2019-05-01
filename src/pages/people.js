@@ -7,7 +7,6 @@ import {
   Card,
   CardBody,
   CardTitle,
-  CardText,
   CardImg,
   Row,
   Col,
@@ -58,7 +57,7 @@ export default class People extends React.Component {
                       />
                       <CardBody>
                         <CardTitle>{user.node.name}</CardTitle>
-                        <CardText>Articles: <ListGroup>{articleLinks}</ListGroup></CardText>
+                        Articles: <ListGroup>{articleLinks}</ListGroup>
                       </CardBody>
                     </Card>
                   </Col>
