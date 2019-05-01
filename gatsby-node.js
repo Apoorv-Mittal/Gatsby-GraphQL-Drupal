@@ -60,6 +60,20 @@ exports.createPages = ({
                 }
             }
         }
+        allUserUser {
+            edges {
+                node {
+                    name
+                    id
+                    relationships {
+                        node__article {
+                            title
+                            id
+                        }
+                    }
+                }
+            }
+        }
     }
     `).then(result => {
             // first check if there is no errors
@@ -89,6 +103,24 @@ exports.createPages = ({
                         imageId: img.node.original.src
                     }
                 });
+            });
+
+            result.data.allUserUser.edges.forEach((user) => {
+
+                let relatedArticles = typeof user.relationships === undefined && user.relationships.node__article !== null ?user.relationships.node__article: null;
+
+                createPage({
+                    path: `/people/${user.node.id}`, // your url -> /categories/animals
+                    component: path.resolve("./src/templates/people.js"), // your template component
+                    context: {
+                        // optional,
+                        // data here will be passed as props to the component `this.props.pageContext`,
+                        // as well as to the graphql query as graphql arguments.
+                        id: user.node.id,
+                        articleId: relatedArticles
+                    }
+                });
+
             });
 
             resolve();
