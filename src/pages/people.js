@@ -45,7 +45,7 @@ export default class People extends React.Component {
                   articleLinks.push(
                     <ListGroupItem key={i}>
                       <Link
-                        to={`/article`}
+                        to={`/article/${art[0].article.id}`}
                         state={{ node: art[0].article, image: art[0].image }}
                       >
                         {relationships[i].title}

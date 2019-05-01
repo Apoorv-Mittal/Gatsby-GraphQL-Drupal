@@ -39,7 +39,7 @@ class IndexPage extends React.Component {
             <Card className="feature" key={index}>
               {img.map((hero, index) => (
                 <div className="card-img-wrapper" key={index}>
-                  <Link to={`/article`} state={{ node: node, image: img }}>
+                  <Link to={`/article/${node.id}`} >
                     <CardImg
                       top
                       width="100%"
@@ -54,8 +54,7 @@ class IndexPage extends React.Component {
                 <CardTitle>
                   <Link
                     className="body-color"
-                    to={`/article`}
-                    state={{ node: node, image: img }}
+                    to={`/article/${node.id}`}
                   >
                     {node.title}
                   </Link>
@@ -78,7 +77,7 @@ class IndexPage extends React.Component {
             <Card className="w-100" key={index}>
               {img.map((hero, index) => (
                 <div className="card-img-wrapper" key={index}>
-                  <Link to={`/article`} state={{ node: node, image: img }}>
+                  <Link to={`/article/${node.id}`} >
                     <CardImg
                       top
                       width="100%"
@@ -93,8 +92,7 @@ class IndexPage extends React.Component {
                 <CardTitle>
                   <Link
                     className="body-color"
-                    to={`/article`}
-                    state={{ node: node, image: img }}
+                    to={`/article/${node.id}`}
                   >
                     {node.title}
                   </Link>
@@ -119,9 +117,8 @@ class IndexPage extends React.Component {
           >
             <Card className="w-100">
               <Link
-                to="/article"
+                to={`/article/${node.id}`}
                 key={Math.random()}
-                state={{ node: node, image: img }}
                 className="home-link track-click"
               >
                 <div className="card-img-wrapper" key={index}>
@@ -162,6 +159,7 @@ export const query = graphql`
       edges {
         node {
           title
+          id
           body {
             value
             processed
