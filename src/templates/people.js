@@ -33,13 +33,21 @@ export default ({ data: { allUserUser: { edges: user } }, pageContext: { article
             return (
                 <Layout>
                     <SEO title="People" />
+                        <div className="card mb-3" style={{maxWidth: "540px"}}>
+                            <div className="row no-gutters">
+                                <div className="col-md-4">
+                                    <img src="https://picsum.photos/id/299/200/200" className="card-img" alt={user.name} />
+                                </div>
+                                <div className="col-md-8">
+                                    <div className="card-body">
+                                        <h5 className="card-title">{user.name}</h5>
+                                        <p className="card-text">This is a user</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <hr classNameName="my-2" />
                     <Row>
-                        <img
-                            src="https://picsum.photos/id/299/200/200"
-                            alt={user.name}
-                        />
-                        <h2>{user.name}</h2>
-                        
                         <div>Articles: </div>
                         <ListGroup>
                             {articleLinks}
